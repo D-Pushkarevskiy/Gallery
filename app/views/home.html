@@ -1,0 +1,59 @@
+<ng-container ng-if="photos.length > 0" class="fade">
+    <div class="submenu-wrapper" id="pagination-anchor">
+        <div class="toggle-photo-view no-user-select" title="Change display view" ng-click="toggleView()"
+            ng-class="viewSize">
+            <div class="submenu-header">Change display view:</div>
+            <span class="lnr lnr-picture" ng-repeat="x in [].constructor(toggleSize) track by $index"></span>
+        </div>
+        <div class="number-settings-wrapper no-user-select">
+            <div class="submenu-header">Number of photos on the page:</div>
+            <span class="num-photo" ng-class="isActiveCount(10)" ng-click="setActiveCount($event, 10)">10</span>
+            <span class="num-photo" ng-class="isActiveCount(30)" ng-click="setActiveCount($event, 30)">30</span>
+            <span class="num-photo" ng-class="isActiveCount(100)" ng-click="setActiveCount($event, 100)">100</span>
+        </div>
+    </div>
+    <div class="pagination-wrapper">
+        <div class="pag-item no-user-select" ng-if="currentPage != 1" ng-click="changePage(increment = false)">
+            <span class="lnr lnr-arrow-left pag-icon"></span>
+            <span class="pag-text">Previous</span>
+        </div>
+        <div class="pag-item no-user-select" ng-click="changePage(increment = true)" ng-if="currentPage<10">
+            <span class="pag-text">Next</span>
+            <span class="lnr lnr-arrow-right pag-icon"></span>
+        </div>
+    </div>
+    <div class="photo-section" ng-repeat="photo in photos" ng-init="photos = []">
+        <div>
+            <ng-container ng-click="zoomImage($event, photo.download_url)">
+                <ng-container ng-if="toggleSize === 2">
+                    <img ng-src="{{photo.download_url | minimizeSize}}" class="allow-transition">
+                </ng-container>
+                <ng-container ng-if="toggleSize === 3">
+                    <img ng-src="{{photo.download_url | mediumSize}}" class="allow-transition">
+                </ng-container>
+            </ng-container>
+        </div>
+        <div class="photo-description">
+            <span class="photo-author w-80">
+                <a href="{{photo.url}}" target="_blank">
+                    {{ photo.author }}
+                </a>
+            </span>
+            <span class="lnr lnr-heart color-default w-10 no-user-select" ng-class="isFavorite(photo.id)"
+                ng-click="toggleFavorite($event, photo.id)"></span>
+        </div>
+    </div>
+    <div class="pagination-wrapper">
+        <div class="pag-item no-user-select" ng-if="currentPage != 1" ng-click="changePage(increment = false)">
+            <span class="lnr lnr-arrow-left pag-icon"></span>
+            <span class="pag-text">Previous</span>
+        </div>
+        <div class="pag-item no-user-select" ng-click="changePage(increment = true)" ng-if="currentPage<10">
+            <span class="pag-text">Next</span>
+            <span class="lnr lnr-arrow-right pag-icon"></span>
+        </div>
+    </div>
+</ng-container>
+<div class="no-data color-default" ng-if="!photos.length">
+    Loading...
+</div>

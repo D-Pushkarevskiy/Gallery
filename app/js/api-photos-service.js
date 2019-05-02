@@ -1,0 +1,1 @@
+galleryApp.factory("apiPhotosService",function($http){return factory={getPhotos:function(page,limit){return $http.get("https://picsum.photos/v2/list?page="+page+"&limit="+limit)}},factory});

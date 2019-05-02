@@ -1,0 +1,1 @@
+galleryApp.factory("httpRequestInterceptor",function($q,$location){return{responseError:function(rejection){return 404===rejection.status&&$location.path("/404/"),$q.reject(rejection)}}});

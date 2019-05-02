@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="galleryApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gallery</title>
+
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+    <!-- Main css files -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <!-- Additional css files -->
+    <link rel="stylesheet" type="text/css" href="css/photos.css">
+    <link rel="stylesheet" type="text/css" href="css/random.css">
+    <link rel="stylesheet" type="text/css" href="css/not-found.css">
+
+    <!-- Main js files -->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular-animate.min.js"></script>
+    <script src="lib/angular/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <!-- Additional js files -->
+    <script src="js/interceptors.js"></script>
+    <script src="js/api-photos-service.js"></script>
+    <script src="js/localstorage-service.js"></script>
+</head>
+
+<body ng-controller="mainController">
+    <div class="overlay-all overlay-fade" ng-if="overlay">
+        <span class="lnr lnr-chevron-left" ng-click="closeOverlay()" title="Back"></span>
+    </div>
+    <header>
+        <nav class="header-navigation">
+            <a href="#!random" class="color-gradient" ng-class="isActiveRoute('/random')">
+                <div>
+                    <span class="lnr lnr-question-circle"></span>
+                </div>
+                random
+            </a>
+            <a href="#!home" class="logo" ng-class="isActiveRoute('/home')">
+                Gallery
+                <div class="logo-descript">Just pictures, and fun</div>
+            </a>
+            <a href="#!favorites" class="color-red" ng-class="isActiveRoute('/favorites')">
+                <div>
+                    <span class="lnr lnr-heart"></span>
+                </div>
+                favorites
+            </a>
+        </nav>
+    </header>
+    <main>
+        <section class="main-section">
+            <ng-view></ng-view>
+        </section>
+    </main>
+
+</body>
+
+</html>
