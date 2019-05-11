@@ -24,7 +24,7 @@
     </div>
     <div class="photo-section" ng-repeat="photo in photos" ng-init="photos = []">
         <div>
-            <ng-container ng-click="zoomImage($event, photo.download_url)">
+            <ng-container ng-click="zoomImage($event, photo.download_url)" class="fade">
                 <ng-container ng-if="toggleSize === 2">
                     <img ng-src="{{photo.download_url | minimizeSize}}" class="allow-transition">
                 </ng-container>

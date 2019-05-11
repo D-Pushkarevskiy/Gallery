@@ -81,7 +81,7 @@ galleryApp.controller('mainController', function mainController($scope, $locatio
 
         $scope.isActiveRoute = function (routeName) {
             if($location.path() === routeName){
-                return 'activeRoute';
+                return 'active-route';
             } else {
                 return '';
             }
