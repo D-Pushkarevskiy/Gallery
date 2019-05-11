@@ -1,0 +1,16 @@
+$color-gray: gray;
+
+.not-found-page {
+    color: $color-gray;
+    .lnr {
+        font-size: 40px;
+    }
+}
+
+.not-found-error {
+    font-size: 72px;
+}
+
+.not-found-text {
+    font-size: 22px;
+}

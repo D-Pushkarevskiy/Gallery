@@ -1,151 +1,120 @@
+.color-default {
+  color: #000000de; }
+
+.color-red {
+  color: #c70000; }
+
+.color-gradient {
+  background: -webkit-linear-gradient(#883eff, #f562ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #883eff; }
+
 body {
-    padding: 0;
-    margin: 0;
-    font-family: 'Nunito', 'Roboto', sans-serif;
-}
+  padding: 0;
+  margin: 0;
+  font-family: 'Nunito', 'Roboto', sans-serif; }
 
 header {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url(https://picsum.photos/id/716/1200/300);
-}
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("https://picsum.photos/id/716/1200/300"); }
 
 nav {
-    text-align: center;
-}
-
-nav a {
+  text-align: center; }
+  nav a {
+    display: inline-block;
     text-decoration: none;
     color: #e6e6e6;
     padding: 10px 20px;
-    display: inline-block;
-    font-size: 18px;
-}
+    font-size: 18px; }
+    nav a.color-red {
+      color: #ff6262; }
 
-nav a.color-red {
-    color: #ff6262;
-}
+.inl-blck {
+  display: inline-block; }
 
-.activeRoute {
-    border-bottom: 1px dashed;
-}
+.border-right {
+  padding-right: 20px;
+  margin-right: 20px;
+  border-right: 2px solid gray; }
+
+.active-route {
+  border-bottom: 1px dashed; }
 
 .header-navigation {
-    padding-top: 60px;
-    padding-bottom: 90px;
-    background: hsla(0, 0%, 0%, 0.65);
-}
+  padding-top: 60px;
+  padding-bottom: 90px;
+  background-color: rgba(0, 0, 0, 0.65); }
 
 main {
-    padding-top: 2em;
-}
+  padding-top: 2em; }
 
 .main-section {
-    text-align: center;
-}
+  text-align: center; }
 
 .logo {
-    font-size: 52px;
-}
+  font-size: 52px; }
 
 .logo-descript {
-    font-size: 14px;
-    clear: both;
-}
-
-.color-default {
-    color: #000000de;
-}
-
-.color-red {
-    color: #c70000;
-}
-
-.color-gradient {
-    background: -webkit-linear-gradient(#883eff, #f562ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: #883eff;
-}
+  font-size: 14px;
+  clear: both; }
 
 .no-data {
-    text-align: center;
-}
+  text-align: center; }
 
+/* Overlay styles and animate */
 .overlay-all {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    background-color: #f7f7f7;
-}
-
-.overlay-all .lnr {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: #e6e6e6; }
+  .overlay-all .lnr {
     line-height: 48px;
     font-size: 22px;
     cursor: pointer;
     padding: 10px 5px;
-}
+    margin-left: 10px; }
 
-.overlay-all .lnr:first-child {
-    margin-left: 10px;
-}
+.stop-scroll {
+  margin: 0;
+  height: 100%;
+  overflow: hidden; }
 
-/* Overlay animate */
 .overlay-fade.ng-enter,
 .overlay-fade.ng-leave {
-    -webkit-transition: opacity 0.1s ease-in-out 0.1s;
-    -moz-transition: opacity 0.1s ease-in-out 0.1s;
-    -ms-transition: opacity 0.1s ease-in-out 0.1s;
-    -o-transition: opacity 0.1s ease-in-out 0.1s;
-    transition: opacity 0.1s ease-in-out 0.1s;
-}
+  -webkit-transition: opacity 0.1s ease-in-out 0.1s;
+  -moz-transition: opacity 0.1s ease-in-out 0.1s;
+  -ms-transition: opacity 0.1s ease-in-out 0.1s;
+  transition: opacity 0.1s ease-in-out 0.1s; }
 
 .overlay-fade.ng-enter,
 .overlay-fade.ng-leave.ng-leave-active {
-    opacity: 0;
-}
+  opacity: 0; }
 
-.faoverlay-fadede.ng-leave,
+.overlay-fade.ng-leave,
 .overlay-fade.ng-enter.ng-enter-active {
-    opacity: 1;
-}
-
-.stop-scroll {
-    margin: 0;
-    height: 100%;
-    overflow: hidden
-}
-
-.inl-blck {
-    display: inline-block;
-}
-
-.border-right {
-    padding-right: 20px;
-    margin-right: 20px;
-    border-right: 2px solid gray;
-}
+  opacity: 1; }
 
 /* ngIf animation */
 .fade.ng-enter img,
 .fade.ng-leave img {
-    -webkit-transition: opacity 0.5s ease-in-out 0.5s;
-    -moz-transition: opacity 0.5s ease-in-out 0.5s;
-    -ms-transition: opacity 0.5s ease-in-out 0.5s;
-    -o-transition: opacity 0.5s ease-in-out 0.5s;
-    transition: opacity 0.5s ease-in-out 0.5s;
-}
+  -webkit-transition: opacity 0.5s ease-in-out 0.5s;
+  -moz-transition: opacity 0.5s ease-in-out 0.5s;
+  -ms-transition: opacity 0.5s ease-in-out 0.5s;
+  transition: opacity 0.5s ease-in-out 0.5s; }
 
 .fade.ng-enter img,
 .fade.ng-leave.ng-leave-active img {
-    opacity: 0;
-}
+  opacity: 0; }
 
 .fade.ng-leave img,
 .fade.ng-enter.ng-enter-active img {
-    opacity: 1;
-}
+  opacity: 1; }
+
+/*# sourceMappingURL=styles.css.map */

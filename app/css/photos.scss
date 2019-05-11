@@ -1,0 +1,209 @@
+$color-blue: #1883a7;
+$color-light-blue: #48b8dd;
+$color-green: #3cbf94;
+$color-light-green: #8ee0c5;
+$color-gray: #8c8c8c;
+$border-light: #eee;
+$box-shadow-light: #f9f9f9;
+
+@mixin user-select($property) {
+    -webkit-user-select: $property;
+    -moz-user-select: $property;
+    -ms-user-select: $property;
+    user-select: $property;
+}
+
+@mixin transition($property, $duration) {
+    -webkit-transition: $property $duration;
+    -moz-transition: $property $duration;
+    -ms-transition: $property $duration;
+    transition: $property $duration;
+}
+
+@mixin transform-translate($tx, $ty) {
+    -webkit-transform: translate($tx, $ty);
+    -moz-transform: translate($tx, $ty);
+    -ms-transform: translate($tx, $ty);
+    transform: translate($tx, $ty);
+}
+
+@mixin scale($property) {
+    -webkit-transform: scale($property);
+    -moz-transform: scale($property);
+    -ms-transform: scale($property);
+    transform: scale($property);
+}
+
+.submenu-wrapper {
+    margin-bottom: 10px;
+}
+
+.no-user-select {
+    @include user-select(none);
+}
+
+.toggle-photo-view,
+.number-settings-wrapper {
+    margin: 0 10px;
+    width: fit-content;
+    display: inline-block;
+}
+
+.num-photo {
+    cursor: pointer;
+    padding: 0 10px;
+    margin: 0 5px;
+
+    &.active {
+        color: $color-blue;
+        border: 1px solid $color-blue;
+        border-radius: 10px;
+    }
+}
+
+.toggle-photo-view {
+    span {
+        cursor: pointer;
+        color: $color-blue;
+        margin: 0 0.1em;
+        @include transition(color, 0.3s);
+        font-size: 18px;
+        vertical-align: middle;
+    }
+
+    &:hover span {
+        color: $color-light-blue;
+    }
+}
+
+.submenu-header {
+    margin-bottom: 10px;
+}
+
+.ico-more {
+    span {
+        font-size: 22px;
+    }
+}
+
+.photo-section {
+    border: 1px solid $border-light;
+    width: fit-content;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    box-shadow: 0px 4px 4px 0px $box-shadow-light;
+    overflow: hidden;
+
+    img {
+        &:not(.zoomed-img):hover {
+            @include scale(1.08);
+            cursor: zoom-in;
+        }
+    }
+}
+
+.allow-transition {
+    @include transition(all, 0.3s);
+}
+
+img {
+    &.zoomed-img {
+        position: fixed;
+        right: 0;
+        height: auto;
+        max-height: 99vh;
+        padding-top: 0.5vh;
+        padding-bottom: 0.5vh;
+        cursor: zoom-out;
+        z-index: 111;
+        left: 50%;
+        top: 50%;
+        @include transform-translate(-50%, -50%);
+        transform-origin: 0% 0%;
+        @include transition(none, 0);
+    }
+}
+
+.photo-description {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid $border-light;
+
+    span {
+        display: inline-block;
+        vertical-align: middle;
+
+        &.lnr-heart {
+            cursor: pointer;
+            @include transition(all, 0.3s);
+            font-size: 14px;
+        }
+
+        &.favorited {
+            font-size: 22px;
+        }
+    }
+
+    .w-10 {
+        width: 10%;
+    }
+
+    .w-20 {
+        width: 20%;
+    }
+
+    .w-80 {
+        width: 80%;
+    }
+}
+
+.photo-author {
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+
+    a {
+        text-decoration: none;
+        color: $color-green;
+        @include transition(all, 0.3s);
+
+        &:hover {
+            color: $color-light-green;
+        }
+    }
+}
+
+.photo-id {
+    font-size: 13px;
+    color: $color-gray;
+    text-align: right;
+}
+
+.pagination-wrapper {
+    padding: 10px;
+}
+
+.pag-item {
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px;
+    margin: 0 10px;
+
+    span {
+        color: $color-blue;
+        vertical-align: middle;
+    }
+}
+
+.pag-text {
+    font-size: 20px;
+}
+
+.pag-icon {
+    font-size: 14px;
+}
+
+.random-photo {
+    max-width: 1200px;
+}

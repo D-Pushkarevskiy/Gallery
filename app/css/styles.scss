@@ -1,0 +1,177 @@
+$header-image-url : 'https://picsum.photos/id/716/1200/300';
+$color-loght-gray: #e6e6e6;
+$color-gray: gray;
+$color-red: #c70000;
+$color-light-red: #ff6262;
+$color-black: #000;
+$color-dark-default: #000000de;
+$color-light-purple: #f562ff;
+$color-purple: #883eff;
+
+@mixin text-center {
+    text-align: center;
+}
+
+@mixin inline-block {
+    display: inline-block;
+}
+
+@mixin transition($property, $duration, $timing, $delay) {
+    -webkit-transition: $property $duration $timing $delay;
+    -moz-transition: $property $duration $timing $delay;
+    -ms-transition: $property $duration $timing $delay;
+    transition: $property $duration $timing $delay;
+}
+
+.color-default {
+    color: $color-dark-default;
+}
+
+.color-red {
+    color: $color-red;
+}
+
+.color-gradient {
+    background: -webkit-linear-gradient($color-purple, $color-light-purple);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: $color-purple;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+
+    font: {
+        family: 'Nunito', 'Roboto', sans-serif;
+    }
+}
+
+header {
+    background: {
+        size: cover;
+        repeat: no-repeat;
+        position: center;
+        image: url($header-image-url);
+    }
+}
+
+nav {
+    @include text-center;
+
+    a {
+        @include inline-block;
+        text-decoration: none;
+        color: $color-loght-gray;
+        padding: 10px 20px;
+        font-size: 18px;
+
+        &.color-red {
+            color: $color-light-red;
+        }
+    }
+}
+
+.inl-blck {
+    @include inline-block;
+}
+
+.border-right {
+    padding-right: 20px;
+    margin-right: 20px;
+    border-right: 2px solid $color-gray;
+}
+
+.active-route {
+    border-bottom: 1px dashed;
+}
+
+.header-navigation {
+    padding-top: 60px;
+    padding-bottom: 90px;
+    background-color: rgba($color-black, 0.65);
+}
+
+main {
+    padding-top: 2em;
+}
+
+.main-section {
+    @include text-center;
+}
+
+.logo {
+    font-size: 52px;
+}
+
+.logo-descript {
+    font-size: 14px;
+    clear: both;
+}
+
+.no-data {
+    @include text-center;
+}
+
+/* Overlay styles and animate */
+.overlay-all {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: $color-loght-gray;
+
+    .lnr {
+        line-height: 48px;
+        font-size: 22px;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin-left: 10px;
+    }
+}
+
+.stop-scroll {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.overlay-fade.ng-enter,
+.overlay-fade.ng-leave {
+    @include transition(opacity, 0.1s, ease-in-out, 0.1s);
+}
+
+.overlay-fade.ng-enter,
+.overlay-fade.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+.overlay-fade.ng-leave,
+.overlay-fade.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+/* ngIf animation */
+.fade.ng-enter,
+.fade.ng-leave {
+    img {
+        @include transition(opacity, 0.5s, ease-in-out, 0.5s);
+    }
+}
+
+.fade.ng-enter,
+.fade.ng-leave.ng-leave-active {
+    img {
+        opacity: 0;
+    }
+}
+
+.fade.ng-leave,
+.fade.ng-enter.ng-enter-active {
+    img {
+        opacity: 1;
+    }
+}
