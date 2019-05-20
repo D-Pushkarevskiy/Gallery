@@ -1,4 +1,6 @@
-galleryApp.factory('localstorageService', ['$window', function ($window) {
+'use strict';
+
+angular.module('galleryApp').factory('localstorageService', ['$window', function ($window) {
     return {
         set: function (key, value) {
             $window.localStorage[key] = value;
@@ -12,5 +14,5 @@ galleryApp.factory('localstorageService', ['$window', function ($window) {
         getObject: function (key) {
             return JSON.parse($window.localStorage[key] || '[]');
         }
-    }
+    };
 }]);
