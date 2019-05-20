@@ -8,7 +8,7 @@
 <ng-container ng-if="randPhoto" class="fade">
     <div class="photo-section">
         <ng-container ng-click="zoomImage($event, randPhoto.download_url)">
-            <img ng-src="{{randPhoto.download_url | mediumSize}}" class="allow-transition">
+            <img ng-src="{{ randPhoto.download_url | setSize:500 }}" class="allow-transition">
         </ng-container>
         <div class="photo-description">
             <span class="photo-author w-80">

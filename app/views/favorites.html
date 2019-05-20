@@ -1,7 +1,7 @@
 <ng-container ng-if="photosUrl.length > 0" class="fade">
     <div class="photo-section" ng-repeat="url in photosUrl" ng-init="photosUrl = []">
         <ng-container ng-click="zoomImage($event, url)">
-            <img ng-src="{{url | minimizeSize}}" class="allow-transition">
+            <img ng-src="{{ url | setSize: 300 }}" class="allow-transition">
         </ng-container>
     </div>
 </ng-container>
