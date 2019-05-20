@@ -6,40 +6,12 @@ $color-gray: #8c8c8c;
 $border-light: #eee;
 $box-shadow-light: #f9f9f9;
 
-@mixin user-select($property) {
-    -webkit-user-select: $property;
-    -moz-user-select: $property;
-    -ms-user-select: $property;
-    user-select: $property;
-}
-
-@mixin transition($property, $duration) {
-    -webkit-transition: $property $duration;
-    -moz-transition: $property $duration;
-    -ms-transition: $property $duration;
-    transition: $property $duration;
-}
-
-@mixin transform-translate($tx, $ty) {
-    -webkit-transform: translate($tx, $ty);
-    -moz-transform: translate($tx, $ty);
-    -ms-transform: translate($tx, $ty);
-    transform: translate($tx, $ty);
-}
-
-@mixin scale($property) {
-    -webkit-transform: scale($property);
-    -moz-transform: scale($property);
-    -ms-transform: scale($property);
-    transform: scale($property);
-}
-
 .submenu-wrapper {
     margin-bottom: 10px;
 }
 
 .no-user-select {
-    @include user-select(none);
+    user-select: none;
 }
 
 .toggle-photo-view,
@@ -63,15 +35,22 @@ $box-shadow-light: #f9f9f9;
 
 .toggle-photo-view {
     span {
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+                font-size: #{$i * 2 + 16}px;
+            }
+        }
+
         cursor: pointer;
         color: $color-blue;
         margin: 0 0.1em;
-        @include transition(color, 0.3s);
+        transition: color 0.3s;
         font-size: 18px;
-        vertical-align: middle;
+        vertical-align: text-bottom;
     }
 
-    &:hover span {
+    &:hover span,
+    span.active {
         color: $color-light-blue;
     }
 }
@@ -97,14 +76,14 @@ $box-shadow-light: #f9f9f9;
 
     img {
         &:not(.zoomed-img):hover {
-            @include scale(1.08);
+            transform: scale(1.08);
             cursor: zoom-in;
         }
     }
 }
 
 .allow-transition {
-    @include transition(all, 0.3s);
+    transition: all 0.3s;
 }
 
 img {
@@ -119,9 +98,9 @@ img {
         z-index: 111;
         left: 50%;
         top: 50%;
-        @include transform-translate(-50%, -50%);
+        transform: translate(-50%, -50%);
         transform-origin: 0% 0%;
-        @include transition(none, 0);
+        transition: none;
     }
 }
 
@@ -136,7 +115,7 @@ img {
 
         &.lnr-heart {
             cursor: pointer;
-            @include transition(all, 0.3s);
+            transition: all 0.3s;
             font-size: 14px;
         }
 
@@ -166,7 +145,7 @@ img {
     a {
         text-decoration: none;
         color: $color-green;
-        @include transition(all, 0.3s);
+        transition: all 0.3s;
 
         &:hover {
             color: $color-light-green;

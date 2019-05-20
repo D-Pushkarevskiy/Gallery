@@ -1,3 +1,5 @@
+@import 'not-found.scss', 'photos.scss', 'random.scss';
+
 $header-image-url : 'https://picsum.photos/id/716/1200/300';
 $color-loght-gray: #e6e6e6;
 $color-gray: gray;
@@ -16,13 +18,6 @@ $color-purple: #883eff;
     display: inline-block;
 }
 
-@mixin transition($property, $duration, $timing, $delay) {
-    -webkit-transition: $property $duration $timing $delay;
-    -moz-transition: $property $duration $timing $delay;
-    -ms-transition: $property $duration $timing $delay;
-    transition: $property $duration $timing $delay;
-}
-
 .color-default {
     color: $color-dark-default;
 }
@@ -34,7 +29,6 @@ $color-purple: #883eff;
 .color-gradient {
     background: -webkit-linear-gradient($color-purple, $color-light-purple);
     background-clip: text;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: $color-purple;
 }
@@ -141,7 +135,7 @@ main {
 
 .overlay-fade.ng-enter,
 .overlay-fade.ng-leave {
-    @include transition(opacity, 0.1s, ease-in-out, 0.1s);
+    transition: opacity 0.1s ease-in-out 0.1s;
 }
 
 .overlay-fade.ng-enter,
@@ -158,7 +152,7 @@ main {
 .fade.ng-enter,
 .fade.ng-leave {
     img {
-        @include transition(opacity, 0.5s, ease-in-out, 0.5s);
+        transition: opacity 0.5s ease-in-out 0.5s;
     }
 }
 
