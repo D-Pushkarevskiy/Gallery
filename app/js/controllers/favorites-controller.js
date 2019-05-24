@@ -3,6 +3,19 @@
 angular.module('galleryApp').controller('favoritesController', [
     '$scope',
     function favoritesController($scope) {
+
+        function getPhotosUrl(ids) {
+            var photosUrl = [];
+
+            for (var index = 0; index < ids.length; index++) {
+                var id = ids[index];
+
+                photosUrl.push('https://picsum.photos/id/' + id + '/1200/1200');
+            }
+
+            return photosUrl.reverse();
+        }
+
         function init() {
             $scope.ids = $scope.favoritesIds;
             $scope.photosUrl = getPhotosUrl($scope.ids);
@@ -10,14 +23,5 @@ angular.module('galleryApp').controller('favoritesController', [
         }
 
         init();
-
-        function getPhotosUrl(ids) {
-            var photosUrl = [];
-            for (var index = 0; index < ids.length; index++) {
-                var id = ids[index];
-                photosUrl.push('https://picsum.photos/id/' + id + '/1200/1200');
-            }
-            return photosUrl.reverse();
-        }
     }
 ]);

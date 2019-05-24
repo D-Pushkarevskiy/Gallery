@@ -9,11 +9,11 @@ angular.module('galleryApp').controller('randomPhotoController', [
             return Math.floor(Math.random() * (max - min)) + min;
         }
 
-        $scope.init = function () {
+        $scope.init = function() {
             // For loading
             $scope.randPhoto = 0;
             apiPhotosService.getPhotos(getRandomInt(1, 10), 100)
-                .then(function (response) {
+                .then(function(response) {
                     $scope.randPhoto = response.data[getRandomInt(1, 100)];
                 });
             $scope.zoomImageOverlayHide();
