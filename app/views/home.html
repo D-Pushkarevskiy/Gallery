@@ -26,7 +26,7 @@
     <div class="photo-section" ng-repeat="photo in photos" ng-init="photos = []">
         <div>
             <ng-container ng-click="zoomImage($event, photo.download_url)" class="fade">
-                <img ng-src="{{ photo.download_url | setSize:currentSize }}" class="allow-transition">
+                <img ng-src="{{ photo.download_url | setSize:currentSize }}" alt="Photo, author - {{photo.author}}, link - {{photo.url}}" class="allow-transition">
             </ng-container>
         </div>
         <div class="photo-description">
