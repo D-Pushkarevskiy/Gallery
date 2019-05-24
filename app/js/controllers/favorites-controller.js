@@ -6,10 +6,11 @@ angular.module('galleryApp').controller('favoritesController', [
 
         function getPhotosUrl(ids) {
             var photosUrl = [];
+            var index;
+            var id;
 
-            for (var index = 0; index < ids.length; index++) {
-                var id = ids[index];
-
+            for (index = 0; index < ids.length; index++) {
+                id = ids[index];
                 photosUrl.push('https://picsum.photos/id/' + id + '/1200/1200');
             }
 
