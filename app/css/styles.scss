@@ -1,22 +1,4 @@
-@import 'not-found.scss', 'photos.scss', 'random.scss';
-
-$header-image-url : 'https://picsum.photos/id/716/1200/300';
-$color-loght-gray: #e6e6e6;
-$color-gray: gray;
-$color-red: #c70000;
-$color-light-red: #ff6262;
-$color-black: #000;
-$color-dark-default: #000000de;
-$color-light-purple: #f562ff;
-$color-purple: #883eff;
-
-@mixin text-center {
-    text-align: center;
-}
-
-@mixin inline-block {
-    display: inline-block;
-}
+@import 'variables.scss', 'not-found.scss', 'photos.scss', 'random.scss';
 
 .color-default {
     color: $color-dark-default;
@@ -52,12 +34,12 @@ header {
 }
 
 nav {
-    @include text-center;
+    text-align: center;
 
     a {
-        @include inline-block;
+        display: inline-block;
         text-decoration: none;
-        color: $color-loght-gray;
+        color: $color-light-gray;
         padding: 10px 20px;
         font-size: 18px;
 
@@ -68,7 +50,7 @@ nav {
 }
 
 .inl-blck {
-    @include inline-block;
+    display: inline-block;
 }
 
 .border-right {
@@ -92,7 +74,7 @@ main {
 }
 
 .main-section {
-    @include text-center;
+    text-align: center;
 }
 
 .logo {
@@ -105,7 +87,7 @@ main {
 }
 
 .no-data {
-    @include text-center;
+    text-align: center;
 }
 
 /* Overlay styles and animate */
@@ -116,7 +98,7 @@ main {
     width: 100%;
     height: 100%;
     z-index: 10;
-    background-color: $color-loght-gray;
+    background-color: $color-light-gray;
 
     .lnr {
         line-height: 48px;
