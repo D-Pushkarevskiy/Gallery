@@ -10,19 +10,19 @@ angular.module('galleryApp').config([
     '$httpProvider',
     function($routeProvider, $httpProvider) {
         $routeProvider.when('/home', {
-            templateUrl: 'views/home.html',
+            templateUrl: 'views/home.html.tmpl',
             controller: 'galleryPhotosController'
         });
         $routeProvider.when('/favorites', {
-            templateUrl: 'views/favorites.html',
+            templateUrl: 'views/favorites.html.tmpl',
             controller: 'favoritesController'
         });
         $routeProvider.when('/random', {
-            templateUrl: 'views/random.html',
+            templateUrl: 'views/random.html.tmpl',
             controller: 'randomPhotoController'
         });
         $routeProvider.when('/404/', {
-            templateUrl: 'views/404.html'
+            templateUrl: 'views/404.html.tmpl'
         });
         $routeProvider.otherwise({
             redirectTo: '/home'
