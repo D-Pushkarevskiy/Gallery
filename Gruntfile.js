@@ -32,19 +32,28 @@ module.exports = function(grunt) {
             }
         },
 
-        jshint: {
+        htmlangular: {
             options: {
-                strict: true,
-                jshintrc: '.jshintrc'
+                tmplext: 'html.tmpl',
+                angular: true,
+                doctype: false,
+                charset: false,
+                reportpath: null,
+                reportCheckstylePath: null,
+                relaxerror: [
+                    'Consider adding a “lang” attribute to the “html” start tag to declare the language of this document.'
+                ]
             },
-            all: ['dist/js/script.min.js']
+            files: {
+                src: ['app/index.html', 'app/views/*.html.tmpl']
+            }
         },
 
         html2js: {
             app: {
                 src: [
                     'app/index.html',
-                    'app/views/*.html'
+                    'app/views/*.html.tmpl'
                 ],
                 dest: 'tmp/js/templates.min.js',
                 options: {
@@ -118,7 +127,7 @@ module.exports = function(grunt) {
                     'app/js/controllers/*.js',
                     'app/js/services/*.js'
                 ],
-                tasks: ['concat', 'jshint', 'uglify:js']
+                tasks: ['concat', 'uglify:js']
             },
             sass: {
                 files: [
@@ -129,16 +138,16 @@ module.exports = function(grunt) {
             html: {
                 files: [
                     'app/index.html',
-                    'app/views/*.html'
+                    'app/views/*.html.tmpl'
                 ],
-                tasks: ['html2js:app', 'uglify', 'clean']
+                tasks: ['htmlangular', 'html2js:app', 'uglify', 'clean']
             }
         }
 
     });
 
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-html-angular-validate');
     grunt.loadNpmTasks('grunt-html2js');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-sass');
@@ -146,6 +155,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['html2js:app', 'concat', 'uglify:js', 'sass:dist', 'postcss:app', 'clean']);
-    grunt.registerTask('build', ['html2js:app', 'concat', 'jshint', 'uglify:js', 'sass:dist', 'postcss:app', 'clean', 'watch']);
+    grunt.registerTask('default', ['htmlangular', 'html2js:app', 'concat', 'uglify:js', 'sass:dist', 'postcss:app', 'clean']);
+    grunt.registerTask('build', ['default', 'watch']);
 };
