@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="galleryApp">
+<html lang="en" data-ng-app="galleryApp">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,8 @@
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <!-- Main css file -->
@@ -26,23 +27,23 @@
 
 </head>
 
-<body ng-controller="mainController">
-    <div class="overlay-all overlay-fade" ng-if="overlay">
-        <span class="lnr lnr-chevron-left" ng-click="closeOverlay()" title="Back"></span>
+<body data-ng-controller="mainController">
+    <div class="overlay-all overlay-fade" data-ng-if="overlay">
+        <span class="lnr lnr-chevron-left" data-ng-click="closeOverlay()" title="Back"></span>
     </div>
     <header>
         <nav class="header-navigation">
-            <a href="#!random" class="color-gradient" ng-class="isActiveRoute('/random')">
+            <a href="#!random" class="color-gradient" data-ng-class="isActiveRoute('/random')">
                 <div>
                     <span class="lnr lnr-question-circle"></span>
                 </div>
                 random
             </a>
-            <a href="#!home" class="logo" ng-class="isActiveRoute('/home')">
+            <a href="#!home" class="logo" data-ng-class="isActiveRoute('/home')">
                 Gallery
                 <div class="logo-descript">Just pictures, and fun</div>
             </a>
-            <a href="#!favorites" class="color-red" ng-class="isActiveRoute('/favorites')">
+            <a href="#!favorites" class="color-red" data-ng-class="isActiveRoute('/favorites')">
                 <div>
                     <span class="lnr lnr-heart"></span>
                 </div>
@@ -51,9 +52,9 @@
         </nav>
     </header>
     <main>
-        <section class="main-section">
+        <div class="main-section">
             <ng-view></ng-view>
-        </section>
+        </div>
     </main>
 
 </body>
