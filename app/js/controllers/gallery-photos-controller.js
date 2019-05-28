@@ -60,12 +60,6 @@ angular.module('galleryApp').controller('galleryPhotosController', [
             $scope.currentSize = $scope.displayViewSizes[currentIndex];
         };
 
-        $scope.pictureFontSize = function(size) {
-            return {
-                'font-size': size / 100 + 12 + 'px'
-            };
-        };
-
         $scope.setActiveCount = function(event, amount) {
             if (!event.target.classList.contains('active')) {
                 document.querySelector('.active').classList.remove('active');
