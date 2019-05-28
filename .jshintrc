@@ -1,9 +1,0 @@
-{
-    "globals": {
-        "angular": false,
-        "$": false,
-        "_": false,
-        "module": false,
-        "require": false
-    }
-}
