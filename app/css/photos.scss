@@ -17,10 +17,14 @@
     cursor: pointer;
     padding: 0 10px;
     margin: 0 5px;
+    color: $color-gray;
 
+    &:hover {
+        color: $color-light-blue;
+    }
     &.active {
-        color: $color-blue;
-        border: 1px solid $color-blue;
+        color: $color-light-blue;
+        border: 1px solid $color-light-blue;
         border-radius: 10px;
     }
 }
@@ -34,16 +38,15 @@
         }
 
         cursor: pointer;
-        color: $color-blue;
+        color: $color-gray;
         margin: 0 0.1em;
         transition: color 0.3s;
         font-size: 18px;
         vertical-align: text-bottom;
-    }
 
-    &:hover span,
-    span.active {
-        color: $color-light-blue;
+        &:hover, &.active {
+            color: $color-light-blue;
+        }
     }
 }
 

@@ -2,8 +2,34 @@
 
 angular.module('galleryApp', [
     'ngRoute',
-    'ngAnimate'
+    'ngAnimate',
+    'cfp.loadingBarInterceptor'
 ]);
+
+angular.module('galleryApp').config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = true;
+    cfpLoadingBarProvider.includeBar = true;
+}]);
+
+angular.module('galleryApp').directive('loading', ['$http', function($http) {
+    return {
+        restrict: 'A',
+        link: function(scope, elm, attrs) {
+            scope.isLoading = function() {
+                return $http.pendingRequests.length > 0;
+            };
+
+            scope.$watch(scope.isLoading, function(v) {
+                if (v) {
+                    attrs.$addClass('main-loading');
+                } else {
+                    attrs.$removeClass('main-loading');
+                }
+            });
+        }
+    };
+
+}]);
 
 angular.module('galleryApp').config([
     '$routeProvider',

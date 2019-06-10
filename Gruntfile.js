@@ -22,13 +22,21 @@ module.exports = function(grunt) {
                 ],
                 dest: 'dist/js/script.min.js'
             },
-            angularjs: {
+            assets: {
                 src: [
                     'app/lib/angular/angular.min.js',
                     'app/lib/angular/angular-route.min.js',
-                    'app/lib/angular/angular-animate.min.js'
+                    'app/lib/angular/angular-animate.min.js',
+                    'app/lib/other/**/*.js'
                 ],
                 dest: 'dist/js/assets.min.js'
+            },
+            css: {
+                src: [
+                    'dist/css/styles.min.css',
+                    'app/lib/other/**/*.css'
+                ],
+                dest: 'dist/css/styles.min.css'
             }
         },
 
@@ -77,7 +85,8 @@ module.exports = function(grunt) {
         uglify: {
             js: {
                 files: [{
-                    'dist/js/script.min.js': 'dist/js/script.min.js'
+                    'dist/js/script.min.js': 'dist/js/script.min.js',
+                    'dist/js/assets.min.js': 'dist/js/assets.min.js'
                 }],
                 options: {
                     expand: true,
@@ -94,7 +103,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'dist/css/styles.css': 'app/css/styles.scss'
+                    'dist/css/styles.min.css': 'app/css/styles.scss'
                 }
             }
         },
@@ -110,7 +119,7 @@ module.exports = function(grunt) {
                 ]
             },
             app: {
-                src: 'dist/css/styles.css'
+                src: 'dist/css/styles.min.css'
             }
         },
 
@@ -133,7 +142,7 @@ module.exports = function(grunt) {
                 files: [
                     'app/css/*.scss'
                 ],
-                tasks: ['sass:dist', 'postcss']
+                tasks: ['sass:dist', 'concat:css', 'postcss']
             },
             html: {
                 files: [
@@ -155,6 +164,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['htmlangular', 'html2js:app', 'concat', 'uglify:js', 'sass:dist', 'postcss:app', 'clean']);
+    grunt.registerTask('default', ['htmlangular', 'html2js:app', 'concat', 'uglify:js', 'sass:dist', 'concat:css', 'postcss:app', 'clean']);
     grunt.registerTask('build', ['default', 'watch']);
 };

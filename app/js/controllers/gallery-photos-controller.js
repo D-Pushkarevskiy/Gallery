@@ -62,7 +62,7 @@ angular.module('galleryApp').controller('galleryPhotosController', [
 
         $scope.setActiveCount = function(event, amount) {
             if (!event.target.classList.contains('active')) {
-                document.querySelector('.active').classList.remove('active');
+                document.querySelector('.num-photo.active').classList.remove('active');
                 event.target.classList.add('active');
                 $scope.changeAmount(amount);
             }
