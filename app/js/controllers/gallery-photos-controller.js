@@ -88,13 +88,6 @@ angular.module('galleryApp').controller('galleryPhotosController', [
             }
             localstorageService.set('currentPage', $scope.currentPage);
             init();
-            $scope.jumpToAnchor();
-        };
-
-        $scope.jumpToAnchor = function() {
-            var top = document.getElementById('pagination-anchor').offsetTop;
-
-            window.scrollTo(0, top);
         };
 
     }
