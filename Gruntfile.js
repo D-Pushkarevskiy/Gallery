@@ -10,7 +10,7 @@ module.exports = function(grunt) {
             },
             pages: {
                 options: {
-                    remote: 'git@github.com:D-Pushkarevskiy/Gallery.git',
+                    remote: 'git@github.com:D-Pushkarevskiy/Gallery/app.git',
                     branch: 'gh-pages'
                 }
             },
