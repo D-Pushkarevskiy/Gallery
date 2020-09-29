@@ -1,5 +1,4 @@
 module.exports = function(grunt) {
-    grunt.loadNpmTasks('grunt-build-control');
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         buildcontrol: {
@@ -175,6 +174,7 @@ module.exports = function(grunt) {
 
     });
 
+    grunt.loadNpmTasks('grunt-build-control');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-html-angular-validate');
     grunt.loadNpmTasks('grunt-html2js');
